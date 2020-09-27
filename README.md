@@ -1,3 +1,7 @@
+Create invoice with symfony 3.4 with flex and php 7.2!
+The database is in sql folder. 
+
+
 Symfony Standard Edition
 ========================
 
