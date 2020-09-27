@@ -1,0 +1,58 @@
+{% block body %}
+    <table style="margin-left: 100px;margin-top: 150px;border-style: inherit">
+
+        {% for invoice in invoices %}
+        <tr>
+            <th>Invoice Id</th>
+            <td>{{ invoice.id }}</td>
+        </tr>
+        <tr>
+            <th>Invoice date</th>
+            {# I know it can be done by localizaddate, but I couldn't format it to correct format
+                because of locale parameter
+            #}
+           <td>{{ invoice.invoiceDate|date('d-m-Y') }}</td>
+        </tr>
+        <tr>
+            <th>Invoice number</th>
+            <td>{{ invoice.invoiceNumber }}</td>
+        </tr>
+        <tr>
+            <th>Client ID</th>
+            <td>{{ invoice.clientId }}</td>
+        </tr>
+
+            {% endfor %}
+
+        {% for invoiceBody in invoiceBodies %}
+
+        {#<tr>
+            <th>Invoice Id</th>
+            <td>{{ invoiceBody.invoiceId }}</td>
+        </tr>#}
+        <tr>
+            <th>Description</th>
+            <td>{{ invoiceBody.description }}</td>
+        </tr>
+        <tr>
+            <th>Quantity</th>
+            <td>{{ invoiceBody.quantity }}</td>
+        </tr>
+        <tr>
+            <th>Amount</th>
+            <td>{{ invoiceBody.amount }}</td>
+        </tr>
+        <tr>
+            <th>VAT</th>
+            <td>{{ invoiceBody.VAT }}</td>
+        </tr>
+        <tr>
+            <th>Total With VAT</th>
+            <td>{{ invoiceBody.totalWithVAT }}</td>
+        </tr>
+    </table>
+        {% endfor %}
+    <hr>
+    <a href="{{ path('invoice') }}">Make another invoice</a>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% block body %}
+    <div style="margin-left: 150px;margin-top: 120px">
+
+        {#{{ form(invoiceBodyForm) }}#}
+        {{ form_start(invoiceBodyForm) }}
+        <h4>Insert Invoice Data</h4>
+
+            {{ form_row(invoiceBodyForm.description) }}
+            {{ form_row(invoiceBodyForm.quantity) }}
+            {{ form_row(invoiceBodyForm.amount) }}
+            {{ form_row(invoiceBodyForm.VAT) }}
+            {{ form_row(invoiceBodyForm.totalWithVAT) }}
+
+            {{ form_widget(invoiceBodyForm.next) }}
+            {{ form_widget(invoiceBodyForm.back) }}
+
+
+        {{  form_end(invoiceBodyForm)}}
+    </div>
+{% endblock %}
+
